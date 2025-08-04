@@ -1,6 +1,13 @@
 const http = require("http");
 
-const options = new URL("http://localhost:3000");
+const url = process.argv[2];
+
+if (!url) {
+  console.log("Please provide a URL as an argument.");
+  process.exit();
+}
+
+const options = new URL(url);
 
 const handler = (res) => {
   const data = [];
